@@ -9,6 +9,12 @@
         <item name="android:windowBackground">@color/background_color</item>
     </style>-->
 
+    <style name="TextStyle">
+        <!-- Example style properties for TextStyle -->
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
     <style name="TextStyle.H1">
         <item name="android:fontFamily">@font/roboto_bold</item>
         <item name="android:textSize">32sp</item>
