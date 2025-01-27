@@ -62,6 +62,12 @@ publishing {
             artifactId = "mylibrary" // Define your artifactId
             version = "1.0.0" // Define your version
         }
+
+        create<MavenPublication>("release") {
+            groupId = "com.example" // Define your groupId
+            artifactId = "mylibrary" // Define your artifactId
+            version = "1.0.0" // Define your version
+        }
     }
     repositories {
         mavenLocal()
