@@ -4,38 +4,57 @@ import android.content.Context
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatButton
 
-class CustomButton(context: Context, attrs: AttributeSet) : AppCompatButton(context, attrs) {
+class CustomButton @JvmOverloads constructor(
+    context: Context,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = android.R.attr.buttonStyle
+) : AppCompatButton(context, attrs, defStyleAttr) {
 
     init {
-        // Retrieve custom attributes
-        val typedArray = context.theme.obtainStyledAttributes(
-            attrs,
-            R.styleable.CustomButton,
-            0, 0
+        // Load custom attributes
+        attrs?.let {
+            val typedArray = context.obtainStyledAttributes(
+                it,
+                R.styleable.CustomButton,
+                defStyleAttr,
+                0
+            )
+
+            try {
+                // Retrieve and apply custom attributes
+                applyCustomAttributes(typedArray)
+            } finally {
+                // Recycle the TypedArray to avoid memory leaks
+                typedArray.recycle()
+            }
+        }
+
+        // Add additional default behavior or styling here if needed
+    }
+
+    private fun applyCustomAttributes(typedArray: android.content.res.TypedArray) {
+        // Retrieve custom text attribute
+        val customText = typedArray.getString(R.styleable.CustomButton_customText)
+        customText?.let {
+            text = it
+        }
+
+        // Retrieve and apply custom background
+        val customBackground = typedArray.getResourceId(
+            R.styleable.CustomButton_customBackground,
+            -1
         )
+        if (customBackground != -1) {
+            setBackgroundResource(customBackground)
+        }
 
-        // Retrieve the custom attributes and apply them
-        try {
-            val customText = typedArray.getString(R.styleable.CustomButton_customText)
-            val customBackground = typedArray.getResourceId(R.styleable.CustomButton_customBackground, -1)
-            val customPadding = typedArray.getDimension(R.styleable.CustomButton_customPadding, 0f)
-
-            // Apply custom text if available
-            if (customText != null) {
-                text = customText
-            }
-
-            // Apply custom background if available
-            if (customBackground != -1) {
-                setBackgroundResource(customBackground)
-            }
-
-            // Apply custom padding if available
-            setPadding(customPadding.toInt(), customPadding.toInt(), customPadding.toInt(), customPadding.toInt())
-
-        } finally {
-            // Recycle the TypedArray to avoid memory leaks
-            typedArray.recycle()
+        // Retrieve and apply custom padding
+        val customPadding = typedArray.getDimension(
+            R.styleable.CustomButton_customPadding,
+            0f
+        ).toInt()
+        if (customPadding > 0) {
+            setPadding(customPadding, customPadding, customPadding, customPadding)
         }
     }
 }
