@@ -7,12 +7,32 @@ plugins {
 android {
     namespace = "com.example.mylibrary"
     compileSdk = 35
+    flavorDimensions += "default"
 
     defaultConfig {
         minSdk = 24
 
+        aarMetadata {
+            minCompileSdk = 24
+        }
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
+    }
+
+    // Assign the flavor to the "default" dimension
+    productFlavors {
+        register("foo") {
+            dimension = "default" // Assign to the dimension
+            aarMetadata {
+                minCompileSdk = 30
+            }
+        }
+    }
+
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+        }
     }
 
     buildTypes {
@@ -39,13 +59,14 @@ publishing {
         // Use AndroidLibrary instead of MavenPublication
         create<MavenPublication>("debug") {
             groupId = "com.example" // Define your groupId
-            artifactId = "designsystem" // Define your artifactId
+            artifactId = "mylibrary" // Define your artifactId
             version = "1.0.0" // Define your version
         }
     }
     repositories {
+        mavenLocal()
         maven {
-            url = uri("https://your-repo.com/repository/maven-releases/") // Replace with your repository URL
+            url = uri("https://github.com/shankar51689/testProj.git") // Replace with your repository URL
             /*credentials {
                 username = (project.findProperty("mavenUser") ?: System.getenv("MAVEN_USER")).toString()
                 password = (project.findProperty("mavenPassword") ?: System.getenv("MAVEN_PASSWORD")).toString()
@@ -63,4 +84,5 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    implementation ("com.github.jitpack:android-example:1.0.1")
 }
