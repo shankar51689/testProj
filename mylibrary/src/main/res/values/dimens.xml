@@ -4,6 +4,7 @@
     <dimen name="spacing_medium">8dp</dimen>
     <dimen name="spacing_large">16dp</dimen>
     <dimen name="icon_size">24dp</dimen>
+    <dimen name="button_height">48dp</dimen>
 
     <dimen name="elevation_low">2dp</dimen>
     <dimen name="elevation_medium">4dp</dimen>
@@ -12,4 +13,14 @@
     <dimen name="radius_small">4dp</dimen>
     <dimen name="radius_medium">8dp</dimen>
     <dimen name="radius_large">16dp</dimen>
+
+    <dimen name="button_padding">16dp</dimen>
+    <dimen name="card_margin">16dp</dimen>
+    <dimen name="text_size_smaller">12sp</dimen>
+    <dimen name="text_size_small">14sp</dimen>
+    <dimen name="text_size_large">20sp</dimen>
+    <dimen name="text_size_mini">6sp</dimen>
+
+
+
 </resources>

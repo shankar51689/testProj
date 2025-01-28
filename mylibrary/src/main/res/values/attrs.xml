@@ -9,4 +9,13 @@
         <attr name="customBackground" format="reference"/>
         <attr name="customPadding" format="dimension"/>
     </declare-styleable>
+
+    <declare-styleable name="ButtonView">
+        <attr name="text" format="string"/>
+        <attr name="buttonTextSize" format="dimension"/>
+        <attr name="textColor" format="reference"/>
+        <attr name="buttonTextColor" format="color"/>
+        <attr name="buttonBackgroundColor" format="color"/>
+        <attr name="isRoundCorners" format="boolean"/>
+    </declare-styleable>
 </resources>

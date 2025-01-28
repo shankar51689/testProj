@@ -56,6 +56,43 @@ android {
 
 publishing {
     publications {
+        create<MavenPublication>("release") {
+            groupId = "com.example.myproject"
+            artifactId = "mylibrary"
+            version = "1.0.2"
+
+            pom {
+                name.set("My Library")
+                description.set("A brief description of your project.")
+                url.set("http://example.com/my-library")
+
+                licenses {
+                    license {
+                        name.set("The Apache License, Version 2.0")
+                        url.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
+                    }
+                }
+
+                developers {
+                    developer {
+                        id.set("developer_id")
+                        name.set("Your Name")
+                        email.set("your_email@example.com")
+                    }
+                }
+
+                scm {
+                    connection.set("scm:git:git://example.com/my-library.git")
+                    developerConnection.set("scm:git:ssh://example.com/my-library.git")
+                    url.set("http://example.com/my-library")
+                }
+            }
+        }
+    }
+}
+
+/*publishing {
+    publications {
         // Use AndroidLibrary instead of MavenPublication
         create<MavenPublication>("release") {
             groupId = "com.github.shankar51689" // Define your groupId
@@ -67,19 +104,20 @@ publishing {
         mavenLocal()
         maven {
             url = uri("https://github.com/shankar51689/testProj.git") // Replace with your repository URL
-            /*credentials {
+            *//*credentials {
                 username = (project.findProperty("mavenUser") ?: System.getenv("MAVEN_USER")).toString()
                 password = (project.findProperty("mavenPassword") ?: System.getenv("MAVEN_PASSWORD")).toString()
-            }*/
+            }*//*
         }
     }
-}
+}*/
 
 
 dependencies {
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.cardview)
 //    implementation(libs.material)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

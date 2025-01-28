@@ -9,32 +9,36 @@
         <item name="android:windowBackground">@color/background_color</item>
     </style>-->
 
-    <style name="TextStyle">
-        <!-- Example style properties for TextStyle -->
-        <item name="android:textColor">@android:color/black</item>
-        <item name="android:textSize">16sp</item>
+    <style name="Typography">
+        <item name="android:textSize">16sp</item>  <!-- Define the base text size -->
+        <item name="android:lineSpacingExtra">4sp</item>  <!-- Line spacing if needed -->
     </style>
 
-    <style name="TextStyle.H1">
+    <style name="Typography.H1">
+        <item name="android:textSize">24sp</item>
         <item name="android:fontFamily">@font/roboto_bold</item>
-        <item name="android:textSize">32sp</item>
-        <item name="android:lineSpacingExtra">1.6sp</item>
-        <!--        to calculate linespacingextra is lineHeight - (textSize * 1.2 )-->
-        <item name="android:lineSpacingMultiplier">1.0</item>
-        <item name="android:textColor">@color/textColor</item>
     </style>
-    <style name="TextStyle.Body1">
-        <item name="android:fontFamily">@font/roboto_regular</item>
+
+    <style name="Typography.Body">
         <item name="android:textSize">16sp</item>
-        <item name="android:lineSpacingExtra">4.8sp</item>
-        <item name="android:lineSpacingMultiplier">1.0</item>
-        <item name="android:textColor">@color/textColor</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
     </style>
 
     <style name="CustomButton">
         <item name="android:background">@drawable/button_background</item>
-        <item name="android:textColor">@color/textColor</item>
+        <item name="android:textColor">@color/primaryTextColor</item>
         <item name="android:textSize">18sp</item>
         <item name="android:padding">@dimen/spacing_medium</item>
     </style>
+
+    <style name="Theme_Custom_Light" parent="android:Theme.Light">
+        <item name="android:textColor">#000000</item>
+        <item name="android:background">#FFFFFF</item>
+    </style>
+
+    <style name="Theme_Custom_Dark" parent="android:Theme.Black">
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:background">#121212</item>
+    </style>
+
 </resources>

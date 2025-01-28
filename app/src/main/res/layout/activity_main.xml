@@ -8,21 +8,28 @@
     tools:context=".MainActivity">
 
 
+    <com.example.mylibrary.components.CheckboxView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"/>
+
+
+    <com.example.mylibrary.components.ButtonView
+        android:id="@+id/btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:buttonTextColor="@color/white"
+        app:text="world"
+        app:isRoundCorners="true"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello World!"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <com.example.mylibrary.CustomButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="hello"
-        android:background="@color/black"
-        android:textColor="@color/white"
-        />
 
 </LinearLayout>
