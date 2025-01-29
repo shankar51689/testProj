@@ -84,7 +84,7 @@ publishing {
             pom {
                 name.set("My Library")
                 description.set("A sample Android library.")
-                url.set("https://example.com/mylibrary")
+                url.set("https://github.com/shankar51689/testProj")
                 licenses {
                     license {
                         name.set("The Apache License, Version 2.0")

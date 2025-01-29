@@ -46,5 +46,5 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 //    implementation(project(":mylibrary"))
-    implementation("com.github.shankar51689:testProj:master-SNAPSHOT")
+    implementation("com.github.shankar51689:testProj:v1.0.0")
 }

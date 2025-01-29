@@ -1,1 +1,2 @@
 -keep class com.example.** { *; }
+-keep class com.example.testproj.** { *; }
