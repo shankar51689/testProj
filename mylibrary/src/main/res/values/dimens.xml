@@ -16,10 +16,31 @@
 
     <dimen name="button_padding">16dp</dimen>
     <dimen name="card_margin">16dp</dimen>
-    <dimen name="text_size_smaller">12sp</dimen>
-    <dimen name="text_size_small">14sp</dimen>
-    <dimen name="text_size_large">20sp</dimen>
-    <dimen name="text_size_mini">6sp</dimen>
+
+<!--    //////////////////////////////////////////////////////////-->
+
+    <dimen name="text_size_6">6sp</dimen>
+    <dimen name="text_size_8">8sp</dimen>
+    <dimen name="text_size_12">14sp</dimen>
+    <dimen name="text_size_16">16sp</dimen>
+    <dimen name="text_size_18">18sp</dimen>
+    <dimen name="text_size_20">20sp</dimen>
+    <dimen name="text_size_24">24sp</dimen>
+    <dimen name="text_size_30">30sp</dimen>
+
+
+    <dimen name="padding_2">2dp</dimen>
+    <dimen name="padding_6">6dp</dimen>
+    <dimen name="padding_8">8dp</dimen>
+    <dimen name="padding_12">12dp</dimen>
+    <dimen name="padding_16">16dp</dimen>
+
+    <dimen name="padding_2_down">-2dp</dimen>
+    <dimen name="padding_6_down">-6dp</dimen>
+    <dimen name="padding_8_down">-8dp</dimen>
+
+
+
 
 
 

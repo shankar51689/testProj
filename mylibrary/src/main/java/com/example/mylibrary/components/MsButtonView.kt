@@ -16,7 +16,6 @@ class ButtonView(context: Context, attrs: AttributeSet) : LinearLayout(context, 
     private var buttonTextSize: Float = 8f
     private var isRoundCorners: Boolean = false
     private var btnText: String = ""
-    // Initialize the button
     private val button: Button = Button(context)
 
     init {
@@ -30,23 +29,23 @@ class ButtonView(context: Context, attrs: AttributeSet) : LinearLayout(context, 
         )
 
         // Get the button text color, background color, text size, and rounded corner flag
-        buttonTextColor = typedArray.getColor(R.styleable.ButtonView_buttonTextColor, buttonTextColor)
-        buttonBackgroundColor = typedArray.getColor(R.styleable.ButtonView_buttonBackgroundColor, buttonBackgroundColor)
-        buttonTextSize = typedArray.getDimension(R.styleable.ButtonView_buttonTextSize, buttonTextSize)
-        isRoundCorners = typedArray.getBoolean(R.styleable.ButtonView_isRoundCorners, false)
-        btnText = typedArray.getString(R.styleable.ButtonView_text) ?: ""
+        buttonTextColor         = typedArray.getColor(R.styleable.ButtonView_buttonTextColor, buttonTextColor)
+        buttonBackgroundColor   = typedArray.getColor(R.styleable.ButtonView_buttonBackgroundColor, buttonBackgroundColor)
+        buttonTextSize          = typedArray.getDimension(R.styleable.ButtonView_buttonTextSize, buttonTextSize)
+        isRoundCorners          = typedArray.getBoolean(R.styleable.ButtonView_isRoundCorners, false)
+        btnText                 = typedArray.getString(R.styleable.ButtonView_text) ?: ""
         typedArray.recycle()
 
         // Apply the customization to the button
         button.setTextColor(buttonTextColor)
         button.setBackgroundColor(buttonBackgroundColor)
         button.textSize = buttonTextSize
-        button.text = btnText
+        button.text     = btnText
 
         // If round corners are enabled, set the rounded background
         if (isRoundCorners) {
-            val drawable = ContextCompat.getDrawable(context, R.drawable.button_rounded)!!
-            button.background = drawable
+            val drawable        = ContextCompat.getDrawable(context, R.drawable.button_rounded)!!
+            button.background   = drawable
         } else {
             button.setBackgroundColor(buttonBackgroundColor) // Default background color
         }

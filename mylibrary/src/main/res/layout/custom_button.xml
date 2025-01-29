@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.widget.Button xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/customButton"
+<Button style="@style/MyDesign_ButtonStyle_Primary"
+    android:text="Primary Button"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:text="Custom Button"
-    android:textSize="16sp"
-    android:padding="16dp"
-    android:layout_margin="8dp"
-    android:backgroundTint="@color/white"
-    android:textColor="@color/black"/>
+    xmlns:android="http://schemas.android.com/apk/res/android" />

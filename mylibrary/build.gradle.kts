@@ -20,14 +20,14 @@ android {
     }
 
     // Assign the flavor to the "default" dimension
-    productFlavors {
+    /*productFlavors {
         register("foo") {
             dimension = "default" // Assign to the dimension
             aarMetadata {
                 minCompileSdk = 30
             }
         }
-    }
+    }*/
 
     publishing {
         singleVariant("release") {
@@ -43,6 +43,11 @@ android {
                 "proguard-rules.pro"
             )
         }
+
+        /*create("customFoo") {
+            isMinifyEnabled = false
+//            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+        }*/
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
@@ -51,45 +56,64 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
+
+    sourceSets {
+        getByName("main").java.srcDirs("src/main/java")
+    }
+}
+
+tasks.register<Jar>("sourcesJar") {
+    archiveClassifier.set("sources")
+//    from(sourceSets["main"].allSource)
+    from(android.sourceSets["main"].java.srcDirs)
 }
 
 
 publishing {
     publications {
-        create<MavenPublication>("release") {
-            groupId = "com.example.myproject"
+        create<MavenPublication>("mavenJava") {
+            groupId = "com.example.mylibrary"
             artifactId = "mylibrary"
-            version = "1.0.2"
+            version = "1.0.0"
 
+            // Add artifacts
+            artifact(tasks.getByName("sourcesJar"))
+            artifact("${layout.buildDirectory}/outputs/aar/mylibrary-release.aar")
+
+            // Configure POM details
             pom {
                 name.set("My Library")
-                description.set("A brief description of your project.")
-                url.set("http://example.com/my-library")
-
+                description.set("A sample Android library.")
+                url.set("https://example.com/mylibrary")
                 licenses {
                     license {
                         name.set("The Apache License, Version 2.0")
                         url.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
                     }
                 }
+            }
+            /*jar {
+                archiveBaseName.set("my-library")  // Name of the jar file
+                archiveVersion.set("1.0.0")        // Version of the jar file
+                from( sourceSets.main.output )       // Specify which files should be included in the jar
+            }*/
+        }
+    }
 
-                developers {
-                    developer {
-                        id.set("developer_id")
-                        name.set("Your Name")
-                        email.set("your_email@example.com")
-                    }
-                }
-
-                scm {
-                    connection.set("scm:git:git://example.com/my-library.git")
-                    developerConnection.set("scm:git:ssh://example.com/my-library.git")
-                    url.set("http://example.com/my-library")
-                }
+    repositories {
+        maven {
+//            name = "myMavenRepo"
+            url = uri("https://oss.sonatype.org/service/local/staging/deploy/maven2/")
+            credentials {
+                username = "monu40128@gmail.com"
+                password = "Monu@5168900"
             }
         }
     }
 }
+
+
+
 
 /*publishing {
     publications {

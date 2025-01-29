@@ -3,24 +3,30 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    android:layout_marginTop="100dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
 
-    <com.example.mylibrary.components.CheckboxView
+    <androidx.appcompat.widget.AppCompatButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="gone"/>
+        android:text="bye"
+        style="@style/MyDesign_ButtonStyle_Primary"
+        />
 
-
-    <com.example.mylibrary.components.ButtonView
-        android:id="@+id/btn"
+    <androidx.appcompat.widget.AppCompatButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:buttonTextColor="@color/white"
-        app:text="world"
-        app:isRoundCorners="true"/>
+        android:text="hello"
+        android:layout_margin="20dp"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello"/>
+
 
     <TextView
         android:layout_width="wrap_content"
